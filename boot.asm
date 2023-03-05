@@ -9,6 +9,8 @@ call println
 mov bx, my_other_string
 call println
 
+call print_alpha
+
 jmp $
 
 println:
