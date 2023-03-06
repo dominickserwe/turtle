@@ -12,7 +12,7 @@ jmp $
 
 %include "rm_print_str.asm"
 %include "gdt.asm"
-%include "print_str.asm"
+%include "pm_print_str.asm"
 %include "switch_to_pm.asm"
 
 [bits 32]
