@@ -7,29 +7,29 @@ mov bp, 0x9000
 mov sp, bp
 
 mov bx, MSG_REAL_MODE
-call rm_print_str
+call print_str
 
 call load_kernel
 call switch_to_pm
 
 jmp $
 
-%include "real/rm_print_str.asm"
-%include "real/rm_disk_load.asm"
+%include "print_str.asm"
+%include "disk_load.asm"
 
-%include "protected/gdt.asm"
-%include "protected/pm_print_str.asm"
-%include "protected/switch_to_pm.asm"
+%include "gdt.asm"
+%include "pm_print_str.asm"
+%include "switch_to_pm.asm"
 
 [bits 16]
 load_kernel:
     mov bx, MSG_LOAD_KERNEL
-    call rm_print_str
+    call print_str
 
     mov bx, KERNAL_OFFSET
     mov dh, 15
     mov dl, [BOOT_DRIVE]
-    call rm_disk_load
+    call disk_load
 
     ret
 

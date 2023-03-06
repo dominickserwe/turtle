@@ -1,4 +1,4 @@
-rm_disk_load:
+disk_load:
     push dx
 
     mov ah, 0x2     ; disk read mode
@@ -20,12 +20,12 @@ rm_disk_load:
 
 disk_read_fail:
     mov bx, DISK_ERROR_MSG
-    call rm_print_str
+    call print_str
     jmp $
 
 disk_read_bad:
     mov bx, BAD_READ_MSG
-    call rm_print_str
+    call print_str
     jmp $
 
 DISK_ERROR_MSG:

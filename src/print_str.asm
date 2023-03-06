@@ -1,22 +1,22 @@
-rm_print_str:
+print_str:
     pusha
     mov ah, 0x0e            ; text mode
 
-rm_print_str_loop:
+print_str_loop:
     mov al, [bx]            ; hopefully bx contains a pointer to a string
     cmp al, 0               ; check for null terminator
-    je rm_print_str_end
+    je print_str_end
 
     int 0x10
 
     inc bx                  ; increment string ptr
-    jmp rm_print_str_loop
+    jmp print_str_loop
 
-rm_print_str_end:
+print_str_end:
     mov al, 0xd
-    int 0x10
+    int 0x10                ; print carriage return
 
-    mov al, 0xa
+    mov al, 0xa             ; print new line
     int 0x10
 
     popa
