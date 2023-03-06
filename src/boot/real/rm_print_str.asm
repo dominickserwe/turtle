@@ -13,5 +13,11 @@ rm_print_str_loop:
     jmp rm_print_str_loop
 
 rm_print_str_end:
+    mov al, 0xd
+    int 0x10
+
+    mov al, 0xa
+    int 0x10
+
     popa
     ret
