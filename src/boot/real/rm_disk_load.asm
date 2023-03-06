@@ -1,7 +1,8 @@
 rm_disk_load:
     push dx
 
-    mov ah, 0x2
+    mov ah, 0x2     ; disk read mode
+    
     mov al, dh      ; read from dh
     mov ch, 0x0     ; cylinder 0
     mov dh, 0x0     ; head 0

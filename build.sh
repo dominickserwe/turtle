@@ -11,4 +11,6 @@ gcc -ffreestanding -c kernel.c -o kernel.o
 mv kernel.o ../../build
 
 cd ../../build
-ld -Ttext 0x1000 --oformat binary kernel.o -o kernel.bin
+ld -o kernel.bin kernel.o -Ttext 0x1000 --oformat binary
+
+cat boot.bin kernel.bin > os.bin
